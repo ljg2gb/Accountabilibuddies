@@ -14,10 +14,16 @@
             <h2>Group Members</h2>
             <ul id="member-list"></ul>
             <p>(form to add members)</p>
-            <ul id="content-list"></ul>
-            <p>(content goes here)</p>
+            <section id="content-list"></section>
             <p>form to post content goes at the bottom of the page</p>
         </section>
     </div>
+    <form action="http://localhost:3000/contents" method='POST'>
+        <input type="text" name="message" placeholder="message">
+        <input type="text" name="image" placeholder="TBD on this">
+        <input type="number" name="user_id" placeholder="Nolan=1, Lydia=2">
+        <input type="number" name="group_id" value=1 placeholder="dont submit anything here">
+        <input type="submit" value="Post">
+    </form>
 </body>
 </html>
