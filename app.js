@@ -31,6 +31,3 @@ function handleUsers(users){
         handleLogin(users)
     }
 }
-
-
-

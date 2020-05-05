@@ -7,16 +7,18 @@ fetch(`http://localhost:3000/users/${search}`)
 
 function handleUser(user){
     const userName = document.querySelector('h1')
-    userName.innerText = user.name 
+    userName.innerText = `Welcome, ${user.name}! Here are your groups:`
     handleGroups(user.groups)
 }
 
+const groupSection = document.querySelector('#groups-section')
 function handleGroups(groups){
     groups.forEach(group => {
         const groupElement = document.createElement('div')
-        groupElement.innerHTML = `<h2><a href="group.html?id=${group.id}">${group.name}</a></h2>
+        groupElement.innerHTML = `
+        <h2><a href="group.html?id=${group.id}">${group.name}</a></h2>
         <p>${group.description}</p>
         `
-        document.body.append(groupElement)
+        groupSection.append(groupElement)
     })
 }
