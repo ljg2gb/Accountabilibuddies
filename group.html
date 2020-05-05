@@ -19,10 +19,11 @@
         </section>
     </div>
     <form action="http://localhost:3000/contents" method='POST'>
+        <label for="message">Write a message or submit a URL</label>
         <input type="text" name="message" placeholder="message">
-        <input type="text" name="image" placeholder="TBD on this">
-        <input type="number" name="user_id" placeholder="Nolan=1, Lydia=2">
-        <input type="number" name="group_id" value=1 placeholder="dont submit anything here">
+        <input type="text" name="image" placeholder="URL">
+        <input id="user-input" type="hidden" name="user_id" placeholder="Nolan=1, Lydia=2">
+        <input id="group-input" type="hidden" name="group_id" placeholder="dont submit anything here">
         <input type="submit" value="Post">
     </form>
 </body>

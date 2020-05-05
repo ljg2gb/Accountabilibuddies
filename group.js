@@ -1,5 +1,12 @@
 const searchParams = new URLSearchParams(window.location.search)
 const id = searchParams.get('id');
+const userID = searchParams.get('user')
+const userInput = document.querySelector('#user-input')
+userInput.value = userID
+
+const groupInput = document.querySelector('#group-input')
+groupInput.value = id
+
 
 fetch(`http://localhost:3000/groups/${id}`)
     .then(resp => resp.json())
@@ -10,6 +17,11 @@ function handleGroup(group){
     groupName.innerText = group.name 
     handleUsers(group.users)
     displayContent(group)
+    generateOptions(group.id, group.users)
+}
+
+function generateOptions(id, users){
+
 }
 
 function handleUsers(users){
@@ -42,8 +54,14 @@ function displayContent(group){
         creatorElement.innerText = `created by ${creator}`
         $div.append(creatorElement)
         document.body.append($div)
-        // console.log(creator)
+        // displayStatus(content)
         
     })
-    
 }
+
+// function displayStatus(content){
+//     const states = content.states 
+//     states.forEach(state => {
+
+//     })
+// }
