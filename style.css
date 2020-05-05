@@ -9,16 +9,19 @@ h1 {
 
 .page-format {
     display: flex;
-    justify-content: 
+    justify-content: center;
+    align-items: center;
 }
 
 #new-user {
     margin-right: 100px;
+    padding: 20px;
     background-color: rgb(69, 113, 207);
 }
 
 #user-login {
     margin-right: 30px;
+    padding: 20px;
     background-color: rgb(69, 113, 207);
 }
 
