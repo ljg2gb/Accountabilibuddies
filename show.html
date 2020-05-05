@@ -16,7 +16,8 @@
       <h2>Create new group</h2>
       <form method="POST" action="http://localhost:3000/groups">
         <input type="text" name="name" placeholder="Group name">
-        <input type="text" name="description" placeholder="What's this group all about?">
+        <input type="text" name="description" placeholder="Group goal">
+        <input id="user-input" type="hidden" name="user_id">
         <input type="submit" value="Create your group!">
       </form>
       <p>add form to remove yourself from a group</p>
