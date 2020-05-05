@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="show.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Homepage</title>
+</head>
+<body>
+  <div class='page-format'>
+    <section id="groups-section">
+      <h1></h1>
+    </section>
+    <section id="new-group">
+      <h2>Create new group</h2>
+      <form method="POST" action="http://localhost:3000/groups">
+        <input type="text" name="name" placeholder="Group name">
+        <input type="text" name="description" placeholder="What's this group all about?">
+        <input type="submit" value="Create your group!">
+      </form>
+      <p>add form to remove yourself from a group</p>
+    </section>
+  </div>  
+</body>
+</html>

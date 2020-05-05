@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
 <body>
     <h1>Home</h1>
-    <h2>Create new user:</h2>
-    <form action="http://localhost:3000/users" method="POST">
-        <input type="text" name="name" placeholder="Type name here">
-        <input type="submit" value="Create new">
-    </form>
-
-    <form action="http://localhost:3001" method="GET">
-        <select name="user_id" id="users"></select>
-        <!-- <input type="text" name="search" placeholder="Type name here"> -->
-        <input type="submit" value="Login">
-    </form>
+    <div class='page-format'>
+    <section id="new-user">
+        <h2>Create new user:</h2>
+        <form action="http://localhost:3000/users" method="POST">
+            <input type="text" name="name" placeholder="Type name here">
+            <input type="submit" value="Create new">
+        </form>
+    </section>
+    <section id="user-login">
+        <h2>Login:</h2>
+        <form action="http://localhost:3001" method="GET">
+            <input type="text" name="search", placeholder="Username">
+            <input type="submit" value="Login">
+        </form>
+    </section>
+</div>
 </body>
 </html>

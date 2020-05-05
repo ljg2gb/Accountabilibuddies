@@ -1,0 +1,35 @@
+body {
+    margin: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: royalblue;
+}
+
+.page-format {
+    display: flex;
+    justify-content: 
+}
+
+#new-user {
+    margin-right: 100px;
+    background-color: rgb(69, 113, 207);
+}
+
+#user-login {
+    margin-right: 30px;
+    background-color: rgb(69, 113, 207);
+}
+
+#groups-section {
+    /* margin: 20px; */
+    margin: (0px, 20px, 20px, 20px);
+    padding: 20px;
+}
+
+#new-group {
+    margin: 20px;
+    background-color: rgb(69, 113, 207);
+    padding: 20px;
+}
