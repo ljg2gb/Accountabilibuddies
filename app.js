@@ -6,8 +6,6 @@ fetch('http://localhost:3000/users')
     .then(resp => resp.json())
     .then(users => handleUsers(users))
 
-
-
 function findUser(user){
     if (user.name == search){
         return user

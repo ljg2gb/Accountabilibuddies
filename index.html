@@ -8,22 +8,28 @@
     <script src="app.js" defer></script>
 </head>
 <body>
-    <h1>Home</h1>
-    <div class='page-format'>
-    <section id="new-user">
-        <h2>Create new user:</h2>
-        <form action="http://localhost:3000/users" method="POST">
-            <input type="text" name="name" placeholder="Type name here">
-            <input type="submit" value="Create new">
-        </form>
-    </section>
-    <section id="user-login">
-        <h2>Login:</h2>
-        <form action="http://localhost:3001" method="GET">
-            <input type="text" name="search", placeholder="Username">
-            <input type="submit" value="Login">
-        </form>
-    </section>
-</div>
+    <nav>
+        <p><a href='show.html'>Home</a></p>
+        <p><a href='index.html'>Logout</a></p>
+        <h1>Accountability Buddies</h1>
+      </nav>
+    <main>
+        <div class='page-format'>
+        <section id="new-user">
+            <h2>Create new user:</h2>
+            <form action="http://localhost:3000/users" method="POST">
+                <input type="text" name="name" placeholder="Type name here">
+                <input type="submit" value="Create new">
+            </form>
+        </section>
+        <section id="user-login">
+            <h2>Login:</h2>
+            <form action="http://localhost:3001" method="GET">
+                <input type="text" name="search", placeholder="Username">
+                <input type="submit" value="Login">
+            </form>
+        </section>
+        </div>
+    </main>
 </body>
 </html>
