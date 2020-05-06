@@ -17,24 +17,26 @@
         <div class='page-format'>
         <section id='main-section'>
             <h1 id="welcome"></h1>
-            <h2>Group Members</h2>
+            <button id="delete-button">Remove yourself from this group.</button>
+            <h3 id='group-members'>Group Members</h3>
             <ul id="member-list"></ul>
-            <p>(form to add members)</p>
+            <form id="add-user"action="http://localhost:3000/joiners" method="POST">
+                <input type="submit" value="Add users!">
+                <input id="hidden-input" type="hidden" name="group_id">
+                <input id="current_user" type="hidden" name="current_user">
+            </form>
             <section id="content-list"></section>
-            <p>form to post content goes at the bottom of the page</p>
         </section>
             <section id='second-section'>
                 <h2>New Post</h2>
-                <form action="http://localhost:3000/contents" method='POST'>
-                    <label for="message">Write a message or submit a URL</label>
-                    <input type="text" name="message" placeholder="message">
-                    <input type="text" name="image" placeholder="URL">
-                    <input id="user-input" type="hidden" name="user_id" placeholder="Nolan=1, Lydia=2">
-                    <input id="group-input" type="hidden" name="group_id" placeholder="dont submit anything here">
+
+                <form id="Post-content-form" action="http://localhost:3000/contents" method='POST'>
+                    <textarea form="Post-content-form" rows="4" cols="50" name="message">Write post here</textarea>
+                    <input type="text" name="image" placeholder="or submit URL">
+                    <input id="user-input" type="hidden" name="user_id">
+                    <input id="group-input" type="hidden" name="group_id">
                     <input type="submit" value="Post">
                 </form>
-                <br>
-                <button id="delete-button">Remove yourself from this group.</button>
             </section>
         </div>
     </main>

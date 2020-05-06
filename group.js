@@ -5,9 +5,32 @@ const userInput = document.querySelector('#user-input')
 userInput.value = userID
 const homeButton = document.getElementById('home-button')
 homeButton.innerHTML = `<a href="http://localhost:3001/show.html?user=${userID}">Home</a>`
+const hiddenInput = document.querySelector('#hidden-input')
+hiddenInput.value = id
+const currentUser = document.querySelector('#current_user')
+currentUser.value = userID
+
 
 const groupInput = document.querySelector('#group-input')
 groupInput.value = id
+
+fetch('http://localhost:3000/users')
+    .then(resp =>resp.json())
+    .then(addUsers)
+
+const addUserForm = document.querySelector('#add-user')
+function addUser(user){
+    const $li = document.createElement('li')
+    $li.innerHTML = `
+    <input type="checkbox" id=${user.name} name="user_id" value=${user.id}>
+    <label for=${user.name}>${user.name}</label>`
+    addUserForm.append($li)
+}
+
+function addUsers(users) {
+    users.forEach(user=> {
+        addUser(user)})
+}
 
 
 fetch(`http://localhost:3000/groups/${id}`)
