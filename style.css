@@ -113,3 +113,8 @@ a:link, a:visited {
 a:hover {
     text-decoration: underline;
 }
+
+li {
+    list-style-type: none;
+    padding-top: 5px;
+}
