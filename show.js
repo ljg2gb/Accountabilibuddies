@@ -20,8 +20,6 @@ function handleUser(user){
 
 const groupSection = document.querySelector('#groups-section')
 
-
-
 function handleGroups(groups){
     groups.forEach(group => {
         const groupElement = document.createElement('div')
