@@ -9,29 +9,33 @@ const hiddenInput = document.querySelector('#hidden-input')
 hiddenInput.value = id
 const currentUser = document.querySelector('#current_user')
 currentUser.value = userID
+const hiddenGroupInput = document.querySelector('#hidden-group-input')
+hiddenGroupInput.value = id
+const hiddenUserInput = document.querySelector('#hidden-user-input')
+hiddenUserInput.value = userID
 
 
-const groupInput = document.querySelector('#group-input')
-groupInput.value = id
+// const groupInput = document.querySelector('#group-input')
+// groupInput.value = id
 
 fetch('http://localhost:3000/users')
     .then(resp =>resp.json())
     .then(addUsers)
-
-const addUserForm = document.querySelector('#add-user')
-function addUser(user){
-    const $li = document.createElement('li')
-    $li.innerHTML = `
-    <input type="checkbox" id=${user.name} name="user_id" value=${user.id}>
-    <label for=${user.name}>${user.name}</label>`
-    addUserForm.append($li)
-}
 
 function addUsers(users) {
     users.forEach(user=> {
         addUser(user)})
 }
 
+const addUserForm = document.querySelector('#add-user')
+function addUser(user){
+    const $li = document.createElement('li')
+    $li.innerHTML = `
+    <input type="checkbox" id=${user.name} name="user_id" value=${user.id}>
+    <label for=${user.name}>${user.name}</label>
+    <input type="hidden" name="group_id" value=${id}>`
+    addUserForm.append($li)
+}
 
 fetch(`http://localhost:3000/groups/${id}`)
     .then(resp => resp.json())

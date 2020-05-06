@@ -17,7 +17,11 @@
         <div class='page-format'>
         <section id='main-section'>
             <h1 id="welcome"></h1>
-            <button id="delete-button">Remove yourself from this group.</button>
+            <form id="remove_self" action="http://localhost:3000/remove_joiner" method="POST">
+                <input id="hidden-group-input" type="hidden" name="group_id">
+                <input id="hidden-user-input" type="hidden" name="user_id">
+                <button id="delete-button" type="submit">Remove yourself from this group.</button>
+            </form>
             <h3 id='group-members'>Group Members</h3>
             <ul id="member-list"></ul>
             <form id="add-user"action="http://localhost:3000/joiners" method="POST">
@@ -31,10 +35,9 @@
                 <h2>New Post</h2>
 
                 <form id="Post-content-form" action="http://localhost:3000/contents" method='POST'>
-                    <textarea form="Post-content-form" rows="4" cols="50" name="message">Write post here</textarea>
+                    <textarea form="Post-content-form" rows="4" cols="50" name="message" placeholder="Write post here"></textarea>
                     <input type="text" name="image" placeholder="or submit URL">
                     <input id="user-input" type="hidden" name="user_id">
-                    <input id="group-input" type="hidden" name="group_id">
                     <input type="submit" value="Post">
                 </form>
             </section>

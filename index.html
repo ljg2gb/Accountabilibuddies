@@ -17,16 +17,16 @@
         <div class='page-format'>
         <section id="new-user">
             <h2>Create new user:</h2>
-            <form action="http://localhost:3000/users" method="POST">
+            <form id="create-user-form" action="http://localhost:3000/users" method="POST">
                 <input type="text" name="name" placeholder="Type name here">
-                <input type="submit" value="Create new">
+                <input form="create-user-form"type="submit" value="Create new">
             </form>
         </section>
         <section id="user-login">
             <h2>Login:</h2>
-            <form action="http://localhost:3001" method="GET">
+            <form id="login-form" action="http://localhost:3001" method="GET">
                 <input type="text" name="search", placeholder="Username">
-                <input type="submit" value="Login">
+                <input form="login-form" id="login" type="submit" value="Login">
             </form>
         </section>
         </div>
