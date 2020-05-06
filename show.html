@@ -9,23 +9,25 @@
 </head>
 <body>
   <nav>
-    <p><a href='index.html'>Home</a></p>
-    <p>Logout</p>
+    <p><a href='show.html'>Home</a></p>
+    <p><a href='index.html'>Logout</a></p>
   </nav>
+  <main>
   <div class='page-format'>
-    <section id="groups-section">
-      <h1></h1>
-    </section>
-    <section id="new-group">
-      <h2>Create new group</h2>
-      <form method="POST" action="http://localhost:3000/groups">
-        <input type="text" name="name" placeholder="Group name">
-        <input type="text" name="description" placeholder="Group goal">
-        <input id="user-input" type="hidden" name="user_id">
-        <input type="submit" value="Create your group!">
-      </form>
-      <p>add form to remove yourself from a group</p>
-    </section>
-  </div>  
+      <section id="groups-section">
+        <h1></h1>
+      </section>
+      <section id="new-group">
+        <h2>Create new group</h2>
+        <form method="POST" action="http://localhost:3000/groups">
+          <input type="text" name="name" placeholder="Group name">
+          <input type="text" name="description" placeholder="Group goal">
+          <input id="user-input" type="hidden" name="user_id">
+          <input type="submit" value="Create your group!">
+        </form>
+        <p>add form to remove yourself from a group</p>
+      </section>
+    </div> 
+  </main> 
 </body>
 </html>

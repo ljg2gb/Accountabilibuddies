@@ -20,9 +20,7 @@ function handleGroup(group){
     generateOptions(group.id, group.users)
 }
 
-function generateOptions(id, users){
-
-}
+function generateOptions(id, users){}
 
 function handleUsers(users){
     const list = document.querySelector("#member-list")
@@ -34,6 +32,7 @@ function handleUsers(users){
         list.append(member)
     })
 }
+
 function displayContent(group){
     const contents = group.contents
     const users = group.users

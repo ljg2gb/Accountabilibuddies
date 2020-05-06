@@ -1,21 +1,7 @@
 const searchParams = new URLSearchParams(window.location.search)
 const search = searchParams.get('user')
 const userInput = document.querySelector('#user-input')
-userInput.value = search 
-// let newGroupId = 0
-
-// const groupSubmit = document.getElementById('group-submit')
-// groupSubmit.addEventListener('submit', handleGroup)
-
-// function handleGroup(){fetch("http://localhost:3000/groups")
-//     .then(response => response.json())
-//     .then(getLastGroup)
-// }
-// function getLastGroup(groups){
-//     const lastIndex = (groups.length -1)
-//     newGroupId = groups[lastIndex].id
-//     console.log(newGroupId)
-// }
+userInput.value = search
 
 fetch(`http://localhost:3000/users/${search}`)
     .then(response => response.json())
