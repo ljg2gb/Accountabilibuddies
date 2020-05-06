@@ -8,7 +8,7 @@ fetch(`http://localhost:3000/users/${search}`)
     .then(user => handleUser(user))
 
 function handleUser(user){
-    const userName = document.querySelector('h1')
+    const userName = document.querySelector('#welcome')
     userName.innerText = `Welcome, ${user.name}! Here are your groups:`
     handleGroups(user.groups)
 }

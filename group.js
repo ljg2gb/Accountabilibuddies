@@ -13,7 +13,7 @@ fetch(`http://localhost:3000/groups/${id}`)
     .then(group => handleGroup(group))
 
 function handleGroup(group){
-    const groupName = document.querySelector('h1')
+    const groupName = document.querySelector('#welcome')
     groupName.innerText = group.name 
     handleUsers(group.users)
     displayContent(group)
@@ -32,7 +32,7 @@ function handleUsers(users){
         list.append(member)
     })
 }
-
+const $mainSection = document.querySelector('#main-section')
 function displayContent(group){
     const contents = group.contents
     const users = group.users
@@ -52,7 +52,7 @@ function displayContent(group){
         const creatorElement = document.createElement('p')
         creatorElement.innerText = `created by ${creator}`
         $div.append(creatorElement)
-        document.body.append($div)
+        $mainSection.append($div)
         // displayStatus(content)
         
     })

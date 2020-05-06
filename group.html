@@ -11,26 +11,30 @@
     <nav>
         <p><a href='show.html'>Home</a></p>
         <p><a href='index.html'>Logout</a></p>
+        <h1>Accountability Buddies</h1>
     </nav>
     <main>
         <div class='page-format'>
-        <section>
-            <h1></h1>
+        <section id='main-section'>
+            <h1 id="welcome"></h1>
             <h2>Group Members</h2>
             <ul id="member-list"></ul>
             <p>(form to add members)</p>
             <section id="content-list"></section>
             <p>form to post content goes at the bottom of the page</p>
         </section>
+            <section id='second-section'>
+                <h2>New Post</h2>
+                <form action="http://localhost:3000/contents" method='POST'>
+                    <label for="message">Write a message or submit a URL</label>
+                    <input type="text" name="message" placeholder="message">
+                    <input type="text" name="image" placeholder="URL">
+                    <input id="user-input" type="hidden" name="user_id" placeholder="Nolan=1, Lydia=2">
+                    <input id="group-input" type="hidden" name="group_id" placeholder="dont submit anything here">
+                    <input type="submit" value="Post">
+                </form>
+            </section>
         </div>
-        <form action="http://localhost:3000/contents" method='POST'>
-            <label for="message">Write a message or submit a URL</label>
-            <input type="text" name="message" placeholder="message">
-            <input type="text" name="image" placeholder="URL">
-            <input id="user-input" type="hidden" name="user_id" placeholder="Nolan=1, Lydia=2">
-            <input id="group-input" type="hidden" name="group_id" placeholder="dont submit anything here">
-            <input type="submit" value="Post">
-        </form>
     </main>
 </body>
 </html>

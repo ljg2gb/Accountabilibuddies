@@ -2,9 +2,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
-    color:white;
-}
 
 nav {
     width: 100%;
@@ -36,33 +33,79 @@ nav h1 {
 #new-user {
     width: 35%;
     min-height: 600px;
-    background-color:rgb(72, 159, 181);
+    background-color:rgb(52, 110, 235);
     padding: 30px;
+    
+}
+#new-user h2, p {
+    color: white;
 }
 
 #user-login {
     width: 65%;
     min-height: 600px;
     padding: 30px;
-    background-color:rgb(130, 192, 204);
+    background-color:rgb(255, 255, 255);
 }
 
 #groups-section {
     width: 65%;
     min-height: 600px;
     padding: 30px;
-    background-color:rgb(130, 192, 204);
+    padding-left: 70px;
+    background-color:rgb(255, 255, 255);
+}
+
+#groups-section div {
+    background-color:rgb(12, 99, 199);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    box-shadow: 5px 5px #e9e8e89a;
 }
 
 #new-group {
     width: 35%;
     min-height: 600px;
-    background-color:rgb(72, 159, 181);
+    background-color:rgb(52, 110, 235);
+    padding: 30px;
+}
+
+#new-group h2, p {
+    color: white;
+}
+
+#main-section {
+    background-color:rgb(255, 255, 255);
+    width: 65%;
+    min-height: 600px;
+    padding: 30px;
+    padding-left: 70px;
+
+}
+
+#main-section div {
+    background-color:rgb(12, 99, 199);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+}
+
+#second-section {
+    width: 35%;
+    min-height: 600px;
+    background-color:rgb(52, 110, 235);
     padding: 30px;
 }
 
 a:link, a:visited {
-    color: rgb(22, 105, 122);
+    color: rgb(252, 189, 17);
     text-decoration: none;
     
 }
