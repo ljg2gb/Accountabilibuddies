@@ -3,6 +3,8 @@ const id = searchParams.get('id');
 const userID = searchParams.get('user')
 const userInput = document.querySelector('#user-input')
 userInput.value = userID
+const homeButton = document.getElementById('home-button')
+homeButton.innerHTML = `<a href="http://localhost:3001/show.html?user=${userID}">Home</a>`
 
 const groupInput = document.querySelector('#group-input')
 groupInput.value = id
@@ -18,6 +20,7 @@ function handleGroup(group){
     handleUsers(group.users)
     displayContent(group)
     generateOptions(group.id, group.users)
+    // getJoiner(group.joiners)
 }
 
 function generateOptions(id, users){}
@@ -37,7 +40,6 @@ function displayContent(group){
     const contents = group.contents
     const users = group.users
     contents.forEach(content => {
-        // console.log('users', users)
         const $div = document.createElement('div')
         
         if (content.message) {
@@ -53,14 +55,26 @@ function displayContent(group){
         creatorElement.innerText = `created by ${creator}`
         $div.append(creatorElement)
         $mainSection.append($div)
-        // displayStatus(content)
-        
     })
 }
 
-// function displayStatus(content){
-//     const states = content.states 
-//     states.forEach(state => {
+// const deleteButton = document.getElementById('delete-button')
 
+// deleteButton.addEventListener('click', event => deleteJoiner(event))
+
+// function deleteJoiner(){
+//     console.log(getJoiner())
+// }
+
+// function getJoiner(joiners){
+//     console.log(joiners)
+//     let currentJoiner
+//     joiners.forEach(joiner => {
+//         if (joiner.user_id == userID){
+//             currentJoiner = joiner
+//         }
 //     })
+// //     const joiners = currentUser.joiners 
+//     console.log(joiners)
+//     return joiners
 // }
