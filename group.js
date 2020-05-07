@@ -86,7 +86,6 @@ function displayUser(user){
 function displayContent(group){
     group.contents.forEach(content => {
        makeContent(content, group.users)
-       stateList(group.users)
     })
 }
 
@@ -101,6 +100,8 @@ function makeContent(content, users){
         const creatorElement = document.createElement('p')
         creatorElement.innerText = `created by ${foundUser.name}`
         $div.append(creatorElement)
+        const statusInfo = stateList(users, content)
+        $div.append(statusInfo)
         $mainSection.append($div)
 }
 
@@ -116,34 +117,78 @@ function makeContent(content, users){
 
 // }
 
-const statesForm = document.createElement('form')
-function createStatesForm() {
+function createStatesForm(user, content) {
+    const statesForm = document.createElement('form')
     statesForm.setAttribute("id", "create-status-form")
     statesForm.setAttribute("action", "http://localhost:3000/states")
     statesForm.setAttribute("method", "POST")
-    createStatesFormInputs()
-    console.log('states', statesForm)
+    const input1 = document.createElement('input')
+    const input2 = document.createElement('input')
+    const select = document.createElement('select')
+    const option1 = document.createElement('option')
+    const option2 = document.createElement('option')
+    const option3 = document.createElement('option')
+    const submitButton = document.createElement('input')
+    // const inputs = [input1, input2, input3]
+    input1.setAttribute("type", "hidden")
+    input1.setAttribute("name", "user_id")
+    input1.setAttribute("value", `${user.id}`)
+    input2.setAttribute("type", "hidden")
+    input2.setAttribute("name", "content_id")
+    input2.setAttribute("value", `${content.id}`)
+    select.setAttribute("name", "status")
+    option1.setAttribute("value", "Not Started")
+    option1.innerText = 'Not Started'
+    option2.setAttribute("value", "In Progress")
+    option2.innerText = 'In Progress'
+    option3.setAttribute("value", "Completed")
+    option3.innerText = 'Completed'
+    submitButton.setAttribute("type", "submit")
+    submitButton.setAttribute("value", "submit")
+    select.append(option1, option2, option3)
+    statesForm.append(input1, input2, select, submitButton)
+    // createStatesFormInputs(user)
+
+    statesForm.append(displayMemberStatus(user, content))
+    return statesForm
 }
 
-function createStatesFormInputs() {
-    const $input = document.createElement('input')
-    $input.setAttribute("type", "text")
-    $input.setAttribute("name", "status")
-    $input.setAttribute("value", "Not Started")
-    statesForm.append($input)
-    console.log('statesw/inputs', statesForm)
-}
+// function createStatesFormInputs(user) {
+//     const $input = document.createElement('input')
+//     $input.setAttribute("type", "text")
+//     $input.setAttribute("name", "status")
+//     $input.setAttribute("value", "Not Started")
+//     statesForm.append($input)
+//     console.log('statesw/inputs', statesForm)
+// }
 
-function stateList(users) {
+function stateList(users, content) {
+    const userStatus = document.createElement('p')
     users.forEach(user => {
-        displayMemberStatus(user) 
-        createStatesForm()      
+        const thingToAppend = createStatesForm(user, content)
+        userStatus.append(thingToAppend)      
         })
+    return userStatus
 }
 
-function displayMemberStatus(user){
+function displayMemberStatus(user, content){ 
+
     const member = document.createElement('li')
-    member.innerText = user.name
-    memberList.append(member)
-    $mainSection.append(memberList)
+    fetchStates()
+    // const states = content.states
+    console.log(fetchStates())
+    // const foundState = states.find(state => state.user_id == user.id)
+    // member.innerHTML = `${user.name}: ${foundStatus.status}`
+    return member
+}
+
+function fetchStates(){
+    fetch('http://localhost:3000/states')
+    .then(response => response.json())
+    .then(states => returnStates(states))
+}
+
+function returnStates(states){
+    console.log(states)
+    // return states
 }
