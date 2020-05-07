@@ -1,107 +1,104 @@
+//Search params
 const searchParams = new URLSearchParams(window.location.search)
-const id = searchParams.get('id');
-const userID = searchParams.get('user')
-const userInput = document.querySelector('#user-input')
-userInput.value = userID
+const groupID = searchParams.get('id') 
+const userID = searchParams.get('user') 
+
+//Post content form
+
+const postFormUserID = document.getElementById('post-content-user-id')
+postFormUserID.value = userID 
+const postFormGroupID = document.getElementById('post-content-group-id')
+postFormGroupID.value = groupID 
+
+//Nav bar
+
 const homeButton = document.getElementById('home-button')
 homeButton.innerHTML = `<a href="http://localhost:3001/show.html?user=${userID}">Home</a>`
-const hiddenInput = document.querySelector('#hidden-input')
-hiddenInput.value = id
-const currentUser = document.querySelector('#current_user')
-currentUser.value = userID
-const hiddenGroupInput = document.querySelector('#hidden-group-input')
-hiddenGroupInput.value = id
-const hiddenUserInput = document.querySelector('#hidden-user-input')
-hiddenUserInput.value = userID
 
+//Add user form
 
-// const groupInput = document.querySelector('#group-input')
-// groupInput.value = id
+const addUserGroupId = document.getElementById('add-user-group-id')
+addUserGroupId.value = groupID 
+const addUserCurrentUser = document.getElementById('current-user')
+addUserCurrentUser.value = userID 
+
+//Remove self from group form
+
+const removeSelfGroupID = document.getElementById('remove-self-group-id')
+removeSelfGroupID.value = groupID
+const removeSelfUserID = document.getElementById('remove-self-user-id')
+removeSelfUserID.value = userID
+
+//fetch for add users to group form
 
 fetch('http://localhost:3000/users')
     .then(resp =>resp.json())
     .then(addUsers)
+
+const addUserForm = document.getElementById('add-user')
 
 function addUsers(users) {
     users.forEach(user=> {
         addUser(user)})
 }
 
-const addUserForm = document.querySelector('#add-user')
 function addUser(user){
     const $li = document.createElement('li')
     $li.innerHTML = `
     <input type="checkbox" id=${user.name} name="user_id" value=${user.id}>
     <label for=${user.name}>${user.name}</label>
-    <input type="hidden" name="group_id" value=${id}>`
+    <input type="hidden" name="group_id" value=${groupID}>`
     addUserForm.append($li)
 }
 
-fetch(`http://localhost:3000/groups/${id}`)
+//fetch for group show page content
+
+fetch(`http://localhost:3000/groups/${groupID}`)
     .then(resp => resp.json())
     .then(group => handleGroup(group))
 
+const $mainSection = document.getElementById('main-section')
+const memberList = document.getElementById('member-list')
+
 function handleGroup(group){
-    const groupName = document.querySelector('#welcome')
-    groupName.innerText = group.name 
+    displayGroupName(group)
     handleUsers(group.users)
     displayContent(group)
-    generateOptions(group.id, group.users)
-    // getJoiner(group.joiners)
 }
 
-function generateOptions(id, users){}
+function displayGroupName(group){
+    const groupName = document.querySelector('#welcome')
+    groupName.innerText = group.name 
+}
 
 function handleUsers(users){
-    const list = document.querySelector("#member-list")
-
     users.forEach(user => {
-        console.log(user.name)
-        const member = document.createElement('li')
-        member.innerText = user.name
-        list.append(member)
+    displayUser(user)       
     })
 }
-const $mainSection = document.querySelector('#main-section')
+
+function displayUser(user){
+    const member = document.createElement('li')
+    member.innerText = user.name
+    memberList.append(member)
+}
+
 function displayContent(group){
-    const contents = group.contents
-    const users = group.users
-    contents.forEach(content => {
-        const $div = document.createElement('div')
-        
+    group.contents.forEach(content => {
+       makeContent(content, group.users) 
+    })
+}
+
+function makeContent(content, users){
+    const $div = document.createElement('div')
         if (content.message) {
             $div.innerHTML = `<h3>${content.message}</h3>`
         } else {
             $div.innerHTML = `<div>${content.image}</div>`
         }
-        let creator = ''
-        users.forEach(user => {
-            if (content.user_id == user.id) { creator = user.name}
-        })
+        const foundUser = users.find(user => user.id == content.user_id)
         const creatorElement = document.createElement('p')
-        creatorElement.innerText = `created by ${creator}`
+        creatorElement.innerText = `created by ${foundUser.name}`
         $div.append(creatorElement)
         $mainSection.append($div)
-    })
 }
-
-// const deleteButton = document.getElementById('delete-button')
-
-// deleteButton.addEventListener('click', event => deleteJoiner(event))
-
-// function deleteJoiner(){
-//     console.log(getJoiner())
-// }
-
-// function getJoiner(joiners){
-//     console.log(joiners)
-//     let currentJoiner
-//     joiners.forEach(joiner => {
-//         if (joiner.user_id == userID){
-//             currentJoiner = joiner
-//         }
-//     })
-// //     const joiners = currentUser.joiners 
-//     console.log(joiners)
-//     return joiners
-// }
