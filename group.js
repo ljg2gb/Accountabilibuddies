@@ -35,20 +35,17 @@ fetch('http://localhost:3000/users')
     .then(resp =>resp.json())
     .then(addUsers)
 
-const addUserForm = document.getElementById('add-user')
-
 function addUsers(users) {
     users.forEach(user=> {
         addUser(user)})
 }
 
+const userSelection = document.querySelector('#user-selection')
 function addUser(user){
-    const $li = document.createElement('li')
-    $li.innerHTML = `
-    <input type="checkbox" id=${user.name} name="user_id" value=${user.id}>
-    <label for=${user.name}>${user.name}</label>
-    <input type="hidden" name="group_id" value=${groupID}>`
-    addUserForm.append($li)
+    const $option = document.createElement('option')
+    $option.value = user.id
+    $option.innerText = user.name
+    userSelection.append($option)
 }
 
 //fetch for group show page content
@@ -105,18 +102,6 @@ function makeContent(content, users){
         $mainSection.append($div)
 }
 
-// (DONE) 1. add all members to the bottom of each piece of content
-// 2. for every create content form submitted, submit a POST create form to states controller w/ status of "not started" for every member of the group.
-// 3. for each user, create an update form w/ pre-populated dropdown options "in progress" and "completed".
-
-// fetch('http://localhost:3000/states')
-//     .then(resp =>resp.json())
-//     .then(updateStatus)
-
-// function updateStatus() {
-
-// }
-
 function createStatesForm(user, content) {
     const statesForm = document.createElement('form')
     statesForm.setAttribute("id", "create-status-form")
@@ -129,7 +114,6 @@ function createStatesForm(user, content) {
     const option2 = document.createElement('option')
     const option3 = document.createElement('option')
     const submitButton = document.createElement('input')
-    // const inputs = [input1, input2, input3]
     input1.setAttribute("type", "hidden")
     input1.setAttribute("name", "user_id")
     input1.setAttribute("value", `${user.id}`)
@@ -153,15 +137,6 @@ function createStatesForm(user, content) {
     return statesForm
 }
 
-// function createStatesFormInputs(user) {
-//     const $input = document.createElement('input')
-//     $input.setAttribute("type", "text")
-//     $input.setAttribute("name", "status")
-//     $input.setAttribute("value", "Not Started")
-//     statesForm.append($input)
-//     console.log('statesw/inputs', statesForm)
-// }
-
 function stateList(users, content) {
     const userStatus = document.createElement('p')
     users.forEach(user => {
@@ -178,7 +153,7 @@ function displayMemberStatus(user, content){
     // const states = content.states
     console.log(fetchStates())
     // const foundState = states.find(state => state.user_id == user.id)
-    // member.innerHTML = `${user.name}: ${foundStatus.status}`
+    member.innerHTML = `${user.name}: ${foundStatus.status}`
     return member
 }
 
