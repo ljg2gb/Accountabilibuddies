@@ -25,7 +25,7 @@ function checkForUser(user){
     if(user.groups.length == 0){
         userName.innerText = `Welcome, ${user.name}! Create a group to get started!`
     } else {
-        userName.innerText = `Welcome, ${user.name}! Here are your groups:`
+        userName.innerText = `Welcome, ${user.name}!`
         handleGroups(user.groups)
     }
 }

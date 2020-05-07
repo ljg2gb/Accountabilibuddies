@@ -62,7 +62,7 @@ const memberList = document.getElementById('member-list')
 
 function handleGroup(group){
     displayGroupName(group)
-    handleUsers(group.users)
+    displayUsers(group.users)
     displayContent(group)
 }
 
@@ -71,7 +71,7 @@ function displayGroupName(group){
     groupName.innerText = group.name 
 }
 
-function handleUsers(users){
+function displayUsers(users){
     users.forEach(user => {
     displayUser(user)       
     })
@@ -85,7 +85,8 @@ function displayUser(user){
 
 function displayContent(group){
     group.contents.forEach(content => {
-       makeContent(content, group.users) 
+       makeContent(content, group.users)
+       stateList(group.users)
     })
 }
 
@@ -101,4 +102,48 @@ function makeContent(content, users){
         creatorElement.innerText = `created by ${foundUser.name}`
         $div.append(creatorElement)
         $mainSection.append($div)
+}
+
+// (DONE) 1. add all members to the bottom of each piece of content
+// 2. for every create content form submitted, submit a POST create form to states controller w/ status of "not started" for every member of the group.
+// 3. for each user, create an update form w/ pre-populated dropdown options "in progress" and "completed".
+
+// fetch('http://localhost:3000/states')
+//     .then(resp =>resp.json())
+//     .then(updateStatus)
+
+// function updateStatus() {
+
+// }
+
+const statesForm = document.createElement('form')
+function createStatesForm() {
+    statesForm.setAttribute("id", "create-status-form")
+    statesForm.setAttribute("action", "http://localhost:3000/states")
+    statesForm.setAttribute("method", "POST")
+    createStatesFormInputs()
+    console.log('states', statesForm)
+}
+
+function createStatesFormInputs() {
+    const $input = document.createElement('input')
+    $input.setAttribute("type", "text")
+    $input.setAttribute("name", "status")
+    $input.setAttribute("value", "Not Started")
+    statesForm.append($input)
+    console.log('statesw/inputs', statesForm)
+}
+
+function stateList(users) {
+    users.forEach(user => {
+        displayMemberStatus(user) 
+        createStatesForm()      
+        })
+}
+
+function displayMemberStatus(user){
+    const member = document.createElement('li')
+    member.innerText = user.name
+    memberList.append(member)
+    $mainSection.append(memberList)
 }
