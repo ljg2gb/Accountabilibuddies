@@ -122,6 +122,7 @@ function createStatesForm(user, content) {
     statesForm.setAttribute("id", "create-status-form")
     statesForm.setAttribute("action", "http://localhost:3000/states")
     statesForm.setAttribute("method", "POST")
+    const userLabel = document.createElement('label')
     const currentGroup = document.createElement('input')
     const currentUser = document.createElement('input')
     const input1 = document.createElement('input')
@@ -131,7 +132,7 @@ function createStatesForm(user, content) {
     const option2 = document.createElement('option')
     const option3 = document.createElement('option')
     const submitButton = document.createElement('input')
-    // const inputs = [input1, input2, input3]
+    userLabel.innerText = `  ${user.name}: `
     currentGroup.setAttribute("type", "hidden")
     currentGroup.setAttribute("name", "current_group")
     currentGroup.setAttribute("value", groupID)
@@ -154,8 +155,8 @@ function createStatesForm(user, content) {
     submitButton.setAttribute("type", "submit")
     submitButton.setAttribute("value", "submit")
     select.append(option1, option2, option3)
+    statesForm.append(input1, input2, select, currentGroup, currentUser, submitButton, userLabel)
     statesForm.append(displayMemberStatus(user, content))
-    statesForm.append(input1, input2, select, currentGroup, currentUser, submitButton)
     return statesForm
 }
 
@@ -187,7 +188,7 @@ function displayMemberStatus(user, content){
         .then(result => {console.log(result.states)
     const foundState = result.states.find(state => state.user_id == user.id)
     // console.log('found state status', foundState.status)
-    member.innerHTML = `  ${user.name}: ${foundState.status}  `
+    member.innerHTML = ` ${foundState.status}  `
     console.log('member', member)
     return member
 })
