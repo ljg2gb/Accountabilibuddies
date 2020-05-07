@@ -40,7 +40,7 @@ nav h1 {
 #new-user {
     width: 35%;
     min-height: 600px;
-    background-color:rgb(52, 110, 235);
+    background-color:rgb(226, 222, 2, 0.815);
     padding: 30px;
     
 }
@@ -102,9 +102,10 @@ nav h1 {
 
 #main-section div {
     border-radius: 10px;
-    /* border-width: 5px;
-    border-color: black; */
-    background-color:rgb(226, 103, 2);
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    background-color:rgb(226, 222, 2);
     width: 400px;
     padding-left: 35px;
     padding-right: 20px;
@@ -117,7 +118,7 @@ nav h1 {
 #second-section {
     width: 35%;
     min-height: 600px;
-    background-color:rgb(52, 110, 235);
+    background-color:rgb(226, 222, 2, 0.815);
     padding: 30px;
 }
 
@@ -128,8 +129,8 @@ a:link, a:visited {
 }
 
 a:hover {
-    text-decoration: underline;
-    color: rgb(221, 20, 97);
+    /* text-decoration: underline; */
+    color: rgb(255, 108, 50);
 }
 
 li {
