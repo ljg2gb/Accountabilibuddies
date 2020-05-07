@@ -54,7 +54,7 @@ fetch(`http://localhost:3000/groups/${groupID}`)
     .then(resp => resp.json())
     .then(group => handleGroup(group))
 
-const $mainSection = document.getElementById('main-section')
+const $contentList = document.getElementById('content-list')
 const memberList = document.getElementById('member-list')
 
 function handleGroup(group){
@@ -99,7 +99,7 @@ function makeContent(content, users){
         $div.append(creatorElement)
         const statusInfo = stateList(users, content)
         $div.append(statusInfo)
-        $mainSection.append($div)
+        $contentList.append($div)
 }
 
 function createStatesForm(user, content) {
