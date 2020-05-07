@@ -122,6 +122,8 @@ function createStatesForm(user, content) {
     statesForm.setAttribute("id", "create-status-form")
     statesForm.setAttribute("action", "http://localhost:3000/states")
     statesForm.setAttribute("method", "POST")
+    const currentGroup = document.createElement('input')
+    const currentUser = document.createElement('input')
     const input1 = document.createElement('input')
     const input2 = document.createElement('input')
     const select = document.createElement('select')
@@ -130,6 +132,12 @@ function createStatesForm(user, content) {
     const option3 = document.createElement('option')
     const submitButton = document.createElement('input')
     // const inputs = [input1, input2, input3]
+    currentGroup.setAttribute("type", "hidden")
+    currentGroup.setAttribute("name", "current_group")
+    currentGroup.setAttribute("value", groupID)
+    currentUser.setAttribute("type", "hidden")
+    currentUser.setAttribute("name", "current_user")
+    currentUser.setAttribute("value", userID)
     input1.setAttribute("type", "hidden")
     input1.setAttribute("name", "user_id")
     input1.setAttribute("value", `${user.id}`)
@@ -146,10 +154,8 @@ function createStatesForm(user, content) {
     submitButton.setAttribute("type", "submit")
     submitButton.setAttribute("value", "submit")
     select.append(option1, option2, option3)
-    statesForm.append(input1, input2, select, submitButton)
-    // createStatesFormInputs(user)
-
     statesForm.append(displayMemberStatus(user, content))
+    statesForm.append(input1, input2, select, currentGroup, currentUser, submitButton)
     return statesForm
 }
 
@@ -164,6 +170,9 @@ function createStatesForm(user, content) {
 
 function stateList(users, content) {
     const userStatus = document.createElement('p')
+    const statusH3 = document.createElement('h3')
+    statusH3.innerText = 'Status'
+    userStatus.appendChild(statusH3)
     users.forEach(user => {
         const thingToAppend = createStatesForm(user, content)
         userStatus.append(thingToAppend)      
@@ -172,23 +181,16 @@ function stateList(users, content) {
 }
 
 function displayMemberStatus(user, content){ 
-
-    const member = document.createElement('li')
-    fetchStates()
-    // const states = content.states
-    console.log(fetchStates())
-    // const foundState = states.find(state => state.user_id == user.id)
-    // member.innerHTML = `${user.name}: ${foundStatus.status}`
+    const member = document.createElement('label')
+    fetch(`http://localhost:3000/contents/${content.id}`)
+        .then(response => response.json())
+        .then(result => {console.log(result.states)
+    const foundState = result.states.find(state => state.user_id == user.id)
+    // console.log('found state status', foundState.status)
+    member.innerHTML = `  ${user.name}: ${foundState.status}  `
+    console.log('member', member)
     return member
+})
+return member
 }
 
-function fetchStates(){
-    fetch('http://localhost:3000/states')
-    .then(response => response.json())
-    .then(states => returnStates(states))
-}
-
-function returnStates(states){
-    console.log(states)
-    // return states
-}
