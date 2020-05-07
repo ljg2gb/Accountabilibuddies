@@ -30,14 +30,14 @@
                 <input id="add-user-group-id" type="hidden" name="group_id">
                 <input id="current-user" type="hidden" name="current_user">
             </form>
-            <section id="content-list"></section>
         </section>
+            <section id="content-list"></section>
             <section id='second-section'>
                 <h2>New Post</h2>
 
                 <form id="Post-content-form" action="http://localhost:3000/contents" method='POST'>
                     <textarea form="Post-content-form" rows="4" cols="50" name="message" placeholder="Write post here"></textarea>
-                    <input type="text" name="image" placeholder="or submit URL">
+                    <!-- <input type="text" name="image" placeholder="or submit URL"> -->
                     <input id="post-content-user-id" type="hidden" name="user_id">
                     <input id="post-content-group-id" type="hidden" name="group_id">
                     <input type="submit" value="Post">
