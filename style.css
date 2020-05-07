@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap');
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 
@@ -22,6 +24,11 @@ nav p, nav h1 {
 nav h1 {
     display: flex;
     align-self: center;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    margin-top: 12px;
 }
 
 .page-format {
@@ -49,33 +56,39 @@ nav h1 {
 }
 
 #groups-section {
-    width: 65%;
+    width: 60%;
     min-height: 600px;
     padding: 30px;
-    padding-left: 70px;
-    background-color:rgb(255, 255, 255);
+    padding-left: 110px;
+    background-color:rgba(226, 204, 2, 0.055);
 }
 
 #groups-section div {
-    background-color:rgb(12, 99, 199);
-    padding-left: 20px;
+    border-radius: 10px;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    background-color:rgb(226, 222, 2);
+    width: 400px;
+    padding-left: 35px;
     padding-right: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     padding-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-right: 40px;
-    box-shadow: 5px 5px #e9e8e89a;
+    
 }
 
 #new-group {
-    width: 35%;
+    width: 40%;
     min-height: 600px;
-    background-color:rgb(52, 110, 235);
+    background-color:rgba(226, 222, 2, 0.815);
     padding: 30px;
+    padding-left: 110px;
 }
 
 #new-group h2, p {
-    color: white;
+    color: black;
 }
 
 #main-section {
@@ -88,12 +101,16 @@ nav h1 {
 }
 
 #main-section div {
-    background-color:rgb(12, 99, 199);
-    padding-left: 20px;
+    border-radius: 10px;
+    /* border-width: 5px;
+    border-color: black; */
+    background-color:rgb(226, 103, 2);
+    width: 400px;
+    padding-left: 35px;
     padding-right: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     padding-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-right: 40px;
 }
 
@@ -105,16 +122,21 @@ nav h1 {
 }
 
 a:link, a:visited {
-    color: rgb(252, 189, 17);
+    color:white;
     text-decoration: none;
     
 }
 
 a:hover {
     text-decoration: underline;
+    color: rgb(221, 20, 97);
 }
 
 li {
     list-style-type: none;
     padding-top: 5px;
+}
+
+#add-user {
+    margin-bottom: 40px;
 }
