@@ -117,7 +117,6 @@ function createStatesForm(user, content) {
     const option2 = document.createElement('option')
     const option3 = document.createElement('option')
     const submitButton = document.createElement('input')
-
     userLabel.innerText = `  ${user.name}: `
     currentGroup.setAttribute("type", "hidden")
     currentGroup.setAttribute("name", "current_group")
@@ -125,7 +124,6 @@ function createStatesForm(user, content) {
     currentUser.setAttribute("type", "hidden")
     currentUser.setAttribute("name", "current_user")
     currentUser.setAttribute("value", userID)
-
     input1.setAttribute("type", "hidden")
     input1.setAttribute("name", "user_id")
     input1.setAttribute("value", `${user.id}`)
@@ -160,7 +158,6 @@ function stateList(users, content) {
 }
 
 function displayMemberStatus(user, content){ 
-
     const member = document.createElement('label')
     fetch(`http://localhost:3000/contents/${content.id}`)
         .then(response => response.json())
@@ -169,7 +166,6 @@ function displayMemberStatus(user, content){
     // console.log('found state status', foundState.status)
     member.innerHTML = ` ${foundState.status}  `
     console.log('member', member)
-
     return member
 })
 return member
