@@ -14,6 +14,8 @@ postFormGroupID.value = groupID
 
 const homeButton = document.getElementById('home-button')
 homeButton.innerHTML = `<a href="http://localhost:3001/show.html?user=${userID}">Home</a>`
+const backButton = document.getElementById('back-button')
+backButton.innerHTML = `<a href="http://localhost:3001/show.html?user=${userID}">Back</a>`
 
 //Add user form
 
@@ -56,6 +58,7 @@ fetch(`http://localhost:3000/groups/${groupID}`)
 
 const $contentList = document.getElementById('content-list')
 const memberList = document.getElementById('member-list')
+const noContentMessage = document.getElementById('no-content-message')
 
 function handleGroup(group){
     displayGroupName(group)
@@ -81,9 +84,13 @@ function displayUser(user){
 }
 
 function displayContent(group){
-    group.contents.forEach(content => {
-       makeContent(content, group.users)
-    })
+    if (group.contents.length == 0){
+        noContentMessage.innerText = 'Add a task to get started.'
+    } else{
+        group.contents.forEach(content => {
+            makeContent(content, group.users)
+         })
+    }
 }
 
 function makeContent(content, users){
