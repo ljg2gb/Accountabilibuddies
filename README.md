@@ -13,7 +13,7 @@ AccountibiliBuddies is a one-week, fullstack, Mod 2 project. It is an accountabi
 
 ## Video
 
-![walkthrough](/Desktop/Flatiron School/work/accountabilibuddy.gif)
+[walkthrough](https://youtu.be/ECMCJ1QmmPw)
 
 ## Setup
 
@@ -67,3 +67,4 @@ From here, you can navigate the website.
 Lydia Gregory [GitHub](https://github.com/ljg2gb)
 
 Nolan Dyke [GitHub](https://github.com/nolan-dyke)
+
