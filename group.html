@@ -9,6 +9,7 @@
 </head>
 <body>
     <nav>
+        <p id="back-button"></p>
         <p id="home-button"></p>
         <p><a href='index.html'>Logout</a></p>
         <h1>AccountabiliBuddies</h1>
@@ -35,12 +36,13 @@
         </section>
             <section id="content-list">
                 <h1 id="welcome"></h1>
+                <h2 id="no-content-message"></h2>
             </section>
             <section id='second-section'>
                 <div class="create-new-form">
-                    <h2>New Post</h2>
+                    <h2>Add a task</h2>
                     <form id="Post-content-form" action="http://localhost:3000/contents" method='POST'>
-                        <textarea form="Post-content-form" rows="6" cols="30" name="message" placeholder="Write post here"></textarea>
+                        <textarea form="Post-content-form" rows="6" cols="30" name="message" placeholder="Write a task for group members to complete."></textarea>
                         <input id="post-content-user-id" type="hidden" name="user_id">
                         <input id="post-content-group-id" type="hidden" name="group_id">
                         <input type="submit" value="Post">
