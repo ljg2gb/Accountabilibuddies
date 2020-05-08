@@ -11,37 +11,41 @@
     <nav>
         <p id="home-button"></p>
         <p><a href='index.html'>Logout</a></p>
-        <h1>Accountability Buddies</h1>
+        <h1>AccountabiliBuddies</h1>
     </nav>
     <main>
         <div class='page-format'>
         <section id='main-section'>
-            <h1 id="welcome"></h1>
-            <form id="remove_self" action="http://localhost:3000/remove_joiner" method="POST">
-                <input id="remove-self-group-id" type="hidden" name="group_id">
-                <input id="remove-self-user-id" type="hidden" name="user_id">
-                <button id="delete-button" type="submit">Remove yourself from this group.</button>
-            </form>
-            <h3 id='group-members'>Group Members</h3>
-            <ul id="member-list"></ul>
-            <form id="add-user"action="http://localhost:3000/joiners" method="POST">
-                <select name="user_id" id="user-selection"></select>
-                <input type="submit" value="Add users!">
-                <input id="add-user-group-id" type="hidden" name="group_id">
-                <input id="current-user" type="hidden" name="current_user">
-            </form>
-        </section>
-            <section id="content-list"></section>
-            <section id='second-section'>
-                <h2>New Post</h2>
-
-                <form id="Post-content-form" action="http://localhost:3000/contents" method='POST'>
-                    <textarea form="Post-content-form" rows="4" cols="50" name="message" placeholder="Write post here"></textarea>
-                    <!-- <input type="text" name="image" placeholder="or submit URL"> -->
-                    <input id="post-content-user-id" type="hidden" name="user_id">
-                    <input id="post-content-group-id" type="hidden" name="group_id">
-                    <input type="submit" value="Post">
+            <div id="group-info-and-actions">
+                <h3 id='group-members'>Members:</h3>
+                <ul id="member-list"></ul>
+                <h3>Add a member to this group:</h3>
+                <form id="add-user"action="http://localhost:3000/joiners" method="POST">
+                    <select name="user_id" id="user-selection"></select>
+                    <input type="submit" value="Add">
+                    <input id="add-user-group-id" type="hidden" name="group_id">
+                    <input id="current-user" type="hidden" name="current_user">
                 </form>
+                <form id="remove_self" action="http://localhost:3000/remove_joiner" method="POST">
+                    <input id="remove-self-group-id" type="hidden" name="group_id">
+                    <input id="remove-self-user-id" type="hidden" name="user_id">
+                    <button id="delete-button" type="submit">Remove yourself from this group.</button>
+                </form>
+            </div>
+        </section>
+            <section id="content-list">
+                <h1 id="welcome"></h1>
+            </section>
+            <section id='second-section'>
+                <div class="create-new-form">
+                    <h2>New Post</h2>
+                    <form id="Post-content-form" action="http://localhost:3000/contents" method='POST'>
+                        <textarea form="Post-content-form" rows="6" cols="30" name="message" placeholder="Write post here"></textarea>
+                        <input id="post-content-user-id" type="hidden" name="user_id">
+                        <input id="post-content-group-id" type="hidden" name="group_id">
+                        <input type="submit" value="Post">
+                    </form>
+                </div>
             </section>
         </div>
     </main>

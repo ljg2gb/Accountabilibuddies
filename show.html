@@ -11,22 +11,24 @@
   <nav>
     <p id="home-button"></p>
     <p><a href='index.html'>Logout</a></p>
-    <h1>Accountability Buddies</h1>
+    <h1>AccountabiliBuddies</h1>
   </nav>
   <main>
     <div class='page-format'>
       <section id="groups-section">
         <h2 id="welcome"></h2>
-        <h3>Your Accountability groups:</h3>
+        <h3>Here are your groups:</h3>
       </section>
       <section id="new-group">
-        <h2>Create new group</h2>
-        <form method="POST" action="http://localhost:3000/groups">
-          <input type="text" name="name" placeholder="Group name">
-          <input type="text" name="description" placeholder="Group goal">
-          <input id="user-input" type="hidden" name="user_id">
-          <input type="submit" value="Create your group!">
-        </form>
+          <div class="create-new-form">
+            <h2>Create new group</h2>
+            <form method="POST" action="http://localhost:3000/groups">
+              <input type="text" name="name" placeholder="Group name">
+              <input type="text" name="description" placeholder="Group goal">
+              <input id="user-input" type="hidden" name="user_id">
+              <input type="submit" value="Create your group!">
+            </form>
+          </div>
       </section>
     </div> 
   </main> 
