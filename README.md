@@ -1,4 +1,5 @@
 # AccountibiliBuddies
+![](/Accountabilibuddies.png)
 
 ## General Info
 
